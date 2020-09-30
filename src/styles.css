@@ -1,0 +1,211 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: var(--globalFontSize);
+    background-image: url("../images/bg-mobile.png");
+    font-family: 'Raleway', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+:root{
+
+    --globalFontSize: 14px;
+
+    --Mobile: 375px;
+    --Desktop: 1440px;
+
+    --Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+
+    --PaleBlue: hsl(243, 100%, 93%);
+    --GrayishBlue: hsl(229, 7%, 55%);
+    --DarkBlue: hsl(228, 56%, 26%);
+    --VeryDarkBlue: hsl(229, 57%, 11%);
+    --VeryDarkBlueOpacity: hsla(229, 57%, 11%, 53%);
+
+    --optionsWidth: 300px;
+    --optionsHeight: 180px;
+    --optionsPadding: 35px;
+
+    --iconWidth: 40px;
+    --iconHeight: 40px;
+    
+    --iconPadding: 10px;
+    
+    --iconBorderRadius: 10px;
+
+    --progressBarSize: 70%;
+
+    --progressBarHeight: 20px;
+
+}
+
+main{
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10em;
+    overflow-y: hidden;
+}
+
+.options-container{
+    width: var(--optionsWidth);
+    height: var(--optionsHeight);
+    background-color: var(--DarkBlue);
+    padding: var(--optionsPadding);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 80px 10px 10px;
+}
+
+.icons-container{
+    width: 80%;
+    display: flex;
+    margin-top: 2em;
+
+}
+
+.icon-conf{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.icon-content:first-child{
+    margin-left: 0;
+}
+
+.icon-content{
+    background-color: var(--VeryDarkBlue);
+    width: var(--iconWidth);
+    height: var(--iconHeight);
+    padding: var(--iconPadding);
+    border-radius: var(--iconBorderRadius);
+    display: flex;
+    justify-content: center;
+    margin-left: 1em;
+}
+
+.storage-used-container{
+    margin-top: 1em;
+    width: var(--optionsWidth);
+    height: 150px;
+    padding: var(--optionsPadding);
+    background-color: var(--DarkBlue);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.storage-used-text{
+    text-align: center;
+    color: var(--PaleBlue);
+}
+
+.storage-used-text > span{
+    font-weight: 700;
+
+}
+
+.progress-bar-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    position: relative;
+}
+
+.progress-bar{
+    width: 250px;
+    height: var(--progressBarHeight);
+    background-color: var(--VeryDarkBlueOpacity);
+    position: relative;
+    left: -10px;
+    border-radius: 10px;
+}
+
+.progress-bar::before{
+    content: "";
+    height: calc(var(--progressBarHeight) - 5px);
+    width: var(--progressBarSize);
+    background: linear-gradient(to right, hsl(6, 100%, 80%) , hsl(335, 100%, 65%));
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    border-radius: 10px;
+    max-width: 95%;
+
+}
+
+.progress-bar::after{
+    content: "";
+    height: 11px;
+    width: 11px;
+    background-color: var(--PaleBlue);
+    position: absolute;
+    top: 4px;
+    left: calc(var(--progressBarSize) - 10px);
+    border-radius: 100%;
+
+}
+
+
+
+.progress-bar-information{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5em;
+}
+
+.storage-used{
+    color: var(--PaleBlue);
+    font-weight: 700;
+    font-size: 0.8em;
+    position: relative;
+}
+
+.storage-used:first-child{
+    left: -8px;
+}
+
+.storage-used:last-child{
+    left: 8px;
+}
+
+.storage-detail-container{
+    width: 190px;
+    height: 80px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.storage-detail{
+    color: var(--VeryDarkBlue);
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.storage-detail > span{
+    font-size: 0.4em;
+    color: var(--GrayishBlue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    top: -5px;
+}

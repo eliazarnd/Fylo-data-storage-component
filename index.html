@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="./src/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <title>Fylo</title>
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     
@@ -24,7 +26,7 @@
                       <img class = "icon-conf" src="./images/icon-folder.svg" alt="" srcset="">
                   </div>
                   <div class="icon-content">
-                      <img class = "icon-conf" src="./images/icon-upload.svg" alt="" srcset="">
+                      <img id = "uploadFiles"class = "icon-conf" src="./images/icon-upload.svg" alt="" srcset="">
                   </div>
 
               </div>  
@@ -34,19 +36,19 @@
         <section class = "storage-used-container">
 
             <div class="storage-used-container-informationr">
-                <p class = "storage-used-text"> You’ve used <span>815 GB</span> of your storage</p>
+                <p class = "storage-used-text"> You’ve used <span id = "storageUsed">815 GB</span> of your storage</p>
             </div>
 
             <div class = "progress-bar-container">
-                <div class="progress-bar">
+                <div class="progress-bar" id = "progressBar">
 
                 </div>
                 <div class="progress-bar-information">
                         <p class = "storage-used">0 GB</p>
                         <p class = "storage-used">1000 GB</p>
                 </div>
-                <div class="storage-detail-container">
-                    <p class = "storage-detail"> 185 <span> GB Left</span></p>
+                <div class="storage-detail-container" id = "storageDetailContainer">
+                    <p class = "storage-detail" id = "storageLeft"> 185 <span> GB Left</span></p>
                 </div>
             </div>
 
@@ -54,5 +56,9 @@
 
     </main>
 
+    <script src="./src/app.js"></script>
+
 </body>
+
+
 </html>

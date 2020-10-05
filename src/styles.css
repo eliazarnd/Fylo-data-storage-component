@@ -6,10 +6,7 @@
 
 body{
     font-size: var(--globalFontSize);
-    background-image: url("../images/bg-mobile.png");
     font-family: 'Raleway', sans-serif;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 :root{
@@ -38,20 +35,23 @@ body{
     
     --iconBorderRadius: 10px;
 
-    --progressBarSize: 70%;
+    --progressBarSize: 0%;
 
     --progressBarHeight: 20px;
 
 }
 
 main{
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 10em;
     overflow-y: hidden;
+    background-image: url("../images/bg-mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .options-container{
@@ -75,6 +75,10 @@ main{
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+}
+
+.icon-conf:hover{
+    cursor: pointer;
 }
 
 .icon-content:first-child{
@@ -131,6 +135,7 @@ main{
     border-radius: 10px;
 }
 
+
 .progress-bar::before{
     content: "";
     height: calc(var(--progressBarHeight) - 5px);
@@ -140,21 +145,21 @@ main{
     top: 2px;
     left: 3px;
     border-radius: 10px;
-    max-width: 95%;
-
+    max-width: 100%;
+    transition: width 2s ease;
 }
-
+ /* 
 .progress-bar::after{
     content: "";
     height: 11px;
     width: 11px;
+    border-radius: 100%;
     background-color: var(--PaleBlue);
     position: absolute;
     top: 4px;
     left: calc(var(--progressBarSize) - 10px);
-    border-radius: 100%;
 
-}
+} */
 
 
 
@@ -180,7 +185,7 @@ main{
 }
 
 .storage-detail-container{
-    width: 190px;
+    width: 200px;
     height: 80px;
     background-color: white;
     border-radius: 10px;
@@ -202,10 +207,82 @@ main{
 }
 
 .storage-detail > span{
-    font-size: 0.4em;
+    font-size: 0.3em;
     color: var(--GrayishBlue);
     text-transform: uppercase;
-    letter-spacing: 1px;
     position: relative;
     top: -5px;
+}
+
+
+@media screen and (min-width: 1440px){
+   
+    
+
+
+   body{
+       background-color: var(--VeryDarkBlue);
+   } 
+
+   main{
+       background-image: url("../images/bg-desktop.png");
+       background-size: contain;
+       background-position: 0 80%;
+       flex-direction: row;
+       column-gap: 30px;
+   }
+
+   .storage-used-container{
+       width: calc(var(--optionsWidth) * 1.8);
+       height: 15%;
+       position: relative;
+       margin-top: 0;
+       top: 20px;
+   }
+
+   .storage-used-text{
+       text-align: left;
+   }
+
+   .progress-bar{
+       width: 100%;
+       position: relative;
+       left: -5px;
+   }
+
+   
+   .progress-bar:hover{
+       cursor: pointer;
+   }
+
+   .progress-bar-information{
+       justify-content: flex-start;
+       column-gap: 81%;
+   }
+
+   .storage-used:first-child{
+       margin-left: 5px;
+   }
+
+   .storage-detail-container{
+    transform: translateX(36px) translateY(-185px);
+     border-bottom-right-radius: 0;      
+     opacity: 0;
+     transition: all 0.5s ease;
+   }
+
+   .storage-detail-container.active{
+      opacity: 1; 
+   }
+
+   .storage-detail-container:after{
+       content: "";
+       position: absolute;
+       background-color: white;
+       width: 20px;
+       height: 20px;
+       clip-path: polygon(100% 100%, 0 0, 100% 0);
+       transform: translateX(85px) translateY(49px);
+   }
+
 }
